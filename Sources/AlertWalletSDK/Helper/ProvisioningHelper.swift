@@ -26,7 +26,7 @@ class ProvisioningHelper: NSObject,PKAddSecureElementPassViewControllerDelegate{
         let provisioningCredentialIdentifier = provisioningInfo.provisioningCredentialIdentifier
         let cardTemplateIdentifier = provisioningInfo.cardTemplateIdentifier
         let sharingInstanceIdentifier = provisioningInfo.sharingInstanceIdentifier
-        let environmentIdentifier = provisioningInfo.envIdentifier ?? PropertiesManager.shared.getEnvironmentIdentifier()
+        let environmentIdentifier = PropertiesManager.shared.getEnvironmentIdentifier() ?? provisioningInfo.envIdentifier
         let ownerDisplayName = PropertiesManager.shared.getOwnerName() ?? "Johnny"
         let localizedDescription = PropertiesManager.shared.getPassDescription() ?? "Pass"
         self.delegate = delegate
@@ -113,7 +113,7 @@ class ProvisioningHelper: NSObject,PKAddSecureElementPassViewControllerDelegate{
         let provisioningCredentialIdentifier = provisioningInfo.provisioningCredentialIdentifier
         let cardTemplateIdentifier = provisioningInfo.cardTemplateIdentifier
         let sharingInstanceIdentifier = provisioningInfo.sharingInstanceIdentifier
-        let environmentIdentifier = provisioningInfo.envIdentifier ?? PropertiesManager.shared.getEnvironmentIdentifier()
+        let environmentIdentifier = PropertiesManager.shared.getEnvironmentIdentifier() ?? provisioningInfo.envIdentifier
         let ownerDisplayName = PropertiesManager.shared.getOwnerName() ?? "Johnny"
         let localizedDescription = PropertiesManager.shared.getPassDescription() ?? "Pass"
         self.delegate = delegate
