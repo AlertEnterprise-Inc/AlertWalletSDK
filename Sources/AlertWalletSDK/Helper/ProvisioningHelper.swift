@@ -22,12 +22,11 @@ class ProvisioningHelper: NSObject,PKAddSecureElementPassViewControllerDelegate{
     public var isDismissed: Bool = false
     public func initiateWalletProvisioning(with provisioningResponse: ProvisioningCredential , viewController: UIViewController , delegate: AlertWalletControllerDelegate?, previewImage: UIImage){
         Self.logger.info("ProvisioningHelper initiateWalletProvisioning Begin")
-        var provisioningInfo = provisioningResponse.provisioningInformation
-        provisioningInfo.environmentIdentifier = PropertiesManager.shared.getEnvironmentIdentifier() ?? "53b70cac-ec0c-4712-b7ba-995ddc119dfd"
+        let provisioningInfo = provisioningResponse.provisioningInformation
         let provisioningCredentialIdentifier = provisioningInfo.provisioningCredentialIdentifier
         let cardTemplateIdentifier = provisioningInfo.cardTemplateIdentifier
         let sharingInstanceIdentifier = provisioningInfo.sharingInstanceIdentifier
-        let environmentIdentifier = provisioningInfo.environmentIdentifier
+        let environmentIdentifier = PropertiesManager.shared.getEnvironmentIdentifier() ?? provisioningInfo.envIdentifier
         let ownerDisplayName = PropertiesManager.shared.getOwnerName() ?? "Johnny"
         let localizedDescription = PropertiesManager.shared.getPassDescription() ?? "Pass"
         self.delegate = delegate
@@ -110,12 +109,11 @@ class ProvisioningHelper: NSObject,PKAddSecureElementPassViewControllerDelegate{
 
     public func validateWalletProvisioning(with provisioningResponse: ProvisioningCredential , viewController: UIViewController , delegate: AlertWalletControllerDelegate?, previewImage: UIImage){
         Self.logger.info("ProvisioningHelper ProvisioningHelper validateWalletProvisioning Begin")
-        var provisioningInfo = provisioningResponse.provisioningInformation
-        provisioningInfo.environmentIdentifier = PropertiesManager.shared.getEnvironmentIdentifier() ?? "53b70cac-ec0c-4712-b7ba-995ddc119dfd"
+        let provisioningInfo = provisioningResponse.provisioningInformation
         let provisioningCredentialIdentifier = provisioningInfo.provisioningCredentialIdentifier
         let cardTemplateIdentifier = provisioningInfo.cardTemplateIdentifier
         let sharingInstanceIdentifier = provisioningInfo.sharingInstanceIdentifier
-        let environmentIdentifier = provisioningInfo.environmentIdentifier
+        let environmentIdentifier = PropertiesManager.shared.getEnvironmentIdentifier() ?? provisioningInfo.envIdentifier
         let ownerDisplayName = PropertiesManager.shared.getOwnerName() ?? "Johnny"
         let localizedDescription = PropertiesManager.shared.getPassDescription() ?? "Pass"
         self.delegate = delegate

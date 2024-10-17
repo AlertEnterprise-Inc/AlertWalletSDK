@@ -11,7 +11,7 @@ public struct ProvisioningInformation: Codable {
     public var provisioningCredentialIdentifier: String
     public var sharingInstanceIdentifier: String
     public var cardTemplateIdentifier: String
-    public var environmentIdentifier: String?
+    public var envIdentifier: String?
     public var accountHash: String?
     public var relyingPartyIdentifier: String?
 
@@ -19,7 +19,7 @@ public struct ProvisioningInformation: Codable {
         self.provisioningCredentialIdentifier = ""
         self.sharingInstanceIdentifier = ""
         self.cardTemplateIdentifier = ""
-        self.environmentIdentifier = nil
+        self.envIdentifier = nil
         self.accountHash = nil
         self.relyingPartyIdentifier = nil
     }
@@ -32,7 +32,7 @@ public struct ProvisioningInformation: Codable {
         self.provisioningCredentialIdentifier = provisioningCredentialIdentifier
         self.sharingInstanceIdentifier = sharingInstanceIdentifier
         self.cardTemplateIdentifier = cardTemplateIdentifier
-        self.environmentIdentifier = environmentIdentifier
+        self.envIdentifier = environmentIdentifier
         self.accountHash = accountHash
         self.relyingPartyIdentifier = relyingPartyIdentifier
     }
